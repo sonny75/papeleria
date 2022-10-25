@@ -1,6 +1,5 @@
 package com.backend.Papeleria.Controller;
-import com.backend.Papeleria.Models.provedor;
-import com.backend.Papeleria.Service.provedorService;
+import com.backend.Papeleria.Models.proveedor;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,51 +14,52 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.backend.Papeleria.Service.proveedorService;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/provedor")
-public class provedorController {
+@RequestMapping("/proveedor")
+public class proveedorController {
     @Autowired
-    private provedorService provedorService;
+    private proveedorService proveedorService;
     
     @PostMapping(value="/")
-    public ResponseEntity<provedor> agregar(@RequestBody provedor provedor){ 
-        provedor obj = provedorService.save(provedor);
+    public ResponseEntity<proveedor> agregar(@RequestBody proveedor proveedor){ 
+        proveedor obj = proveedorService.save(proveedor);
         return new ResponseEntity<>(obj, HttpStatus.OK);     
     }
     
     @DeleteMapping(value="/{id}") 
-    public ResponseEntity<provedor> eliminar(@PathVariable Integer id){ 
-        provedor obj = provedorService.findById(id); 
+    public ResponseEntity<proveedor> eliminar(@PathVariable Integer id){ 
+        proveedor obj = proveedorService.findById(id); 
         if(obj!=null) 
-            provedorService.delete(id); 
+            proveedorService.delete(id); 
         else 
             return new ResponseEntity<>(obj, HttpStatus.INTERNAL_SERVER_ERROR); 
         return new ResponseEntity<>(obj, HttpStatus.OK); 
     }
     @PutMapping(value="/") 
-    public ResponseEntity<provedor> editar(@RequestBody provedor provedor){ 
-        provedor obj = provedorService.findById(provedor.getIdproveedor()); 
+    public ResponseEntity<proveedor> editar(@RequestBody proveedor proveedor){ 
+        proveedor obj = proveedorService.findById(proveedor.getIdproveedor()); 
         if(obj!=null) {
-            obj.setNombrevendedor(provedor.getNombrevendedor());
-            obj.setDireccionempresa(provedor.getDireccionempresa());
-            obj.setEmailproveedor(provedor.getEmailproveedor());
-            obj.setCelularproveedor(provedor.getCelularproveedor());
-            obj.setEmpresa(provedor.getEmpresa());
-            provedorService.save(obj); 
+            obj.setNombrevendedor(proveedor.getNombrevendedor());
+            obj.setDireccionempresa(proveedor.getDireccionempresa());
+            obj.setEmailproveedor(proveedor.getEmailproveedor());
+            obj.setCelularproveedor(proveedor.getCelularproveedor());
+            obj.setEmpresa(proveedor.getEmpresa());
+            proveedorService.save(obj); 
         } 
         else 
             return new ResponseEntity<>(obj, HttpStatus.INTERNAL_SERVER_ERROR); 
         return new ResponseEntity<>(obj, HttpStatus.OK); 
     }
     @GetMapping("/list")
-    public List<provedor> consultarTodo(){
-        return provedorService.findByAll(); 
+    public List<proveedor> consultarTodo(){
+        return proveedorService.findByAll(); 
     } 
     @GetMapping("/list/{id}") 
-    public provedor consultaPorId(@PathVariable Integer id){ 
-        return provedorService.findById(id); 
+    public proveedor consultaPorId(@PathVariable Integer id){ 
+        return proveedorService.findById(id); 
     }
     
 }

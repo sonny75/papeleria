@@ -23,9 +23,9 @@ public class producto implements Serializable {
     private categoria categoria;
     @ManyToOne
     @JoinColumn(name="idprovedor")
-    private provedor provedor;
+    private proveedor provedor;
 
-    public producto(int idproducto, String descripcionproducto, categoria categoria, provedor provedor) {
+    public producto(int idproducto, String descripcionproducto, categoria categoria, proveedor provedor) {
         this.idproducto = idproducto;
         this.descripcionproducto =descripcionproducto;
         this.categoria = categoria;
@@ -59,11 +59,11 @@ public class producto implements Serializable {
         this.categoria = categoria;
     }
 
-    public provedor getProvedor() {
+    public proveedor getProvedor() {
         return provedor;
     }
 
-    public void setProvedor(provedor provedor) {
+    public void setProvedor(proveedor provedor) {
         this.provedor = provedor;
     }
 }

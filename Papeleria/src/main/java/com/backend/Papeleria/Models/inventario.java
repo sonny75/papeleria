@@ -23,7 +23,7 @@ public class inventario implements Serializable {
     private producto producto;
     @ManyToOne
     @JoinColumn(name="idproveedor")
-    private provedor provedor;
+    private proveedor provedor;
     @Column(name="fecharegistro")
     private String fecharegistro;
     @Column(name="cantidad")
@@ -34,7 +34,7 @@ public class inventario implements Serializable {
     @JoinColumn(name="codigoventa")
     private ventas ventas;
 
-    public inventario(producto producto, provedor provedor, String fecharegistro, int cantidad,int valorunitario,ventas ventas) {
+    public inventario(producto producto, proveedor provedor, String fecharegistro, int cantidad,int valorunitario,ventas ventas) {
         this.producto = producto;
         this.provedor =provedor;
         this.fecharegistro= fecharegistro;
@@ -54,11 +54,11 @@ public class inventario implements Serializable {
         this.producto = producto;
     }
 
-    public provedor getProvedor() {
+    public proveedor getProvedor() {
         return provedor;
     }
 
-    public void setProvedor(provedor provedor) {
+    public void setProvedor(proveedor provedor) {
         this.provedor = provedor;
     }
 

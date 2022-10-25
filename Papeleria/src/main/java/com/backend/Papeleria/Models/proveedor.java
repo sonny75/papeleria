@@ -9,8 +9,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name="provedor")
-public class provedor implements Serializable {
+@Table(name="proveedor")
+public class proveedor implements Serializable {
     @Id
     @Column(name="idproveedor")
     private int idproveedor;
@@ -25,7 +25,7 @@ public class provedor implements Serializable {
     @Column(name="nombrevendedor")
     private String nombrevendedor;
 
-    public provedor(int idproveedor, String empresa, int celularproveedor,String emailproveedor,String direccionempresa,String nombrevendedor) {
+    public proveedor(int idproveedor, String empresa, int celularproveedor,String emailproveedor,String direccionempresa,String nombrevendedor) {
         this.idproveedor = idproveedor;
         this.empresa = empresa;
         this.celularproveedor = celularproveedor;
@@ -34,7 +34,7 @@ public class provedor implements Serializable {
         this.nombrevendedor = nombrevendedor;
     }
 
-    public provedor() {
+    public proveedor() {
     }
 
     public int getIdproveedor() {
