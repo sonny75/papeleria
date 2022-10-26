@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function reunirFormData() {
         return{
             idusuario: event.target.idusuario.value,
-            nombre_uno: event.target.nombreuno.value,
+            nombreuno: event.target.nombreuno.value,
             nombredos: event.target.nombredos.value,
             apellidouno: event.target.apellidouno.value,
             apellidos: event.target.apellidodos.value,

@@ -25,11 +25,11 @@ public class ventas implements Serializable {
     @Column(name="fecharegistro")
     private String fecharegistro;
 
-    public ventas(int idventa, papeleria papeleria, usuario usuario, String fecharegistro) {
-       this.idventa = idventa;
+    public ventas(int idVenta, papeleria papeleria, usuario usuario, String fechaRegistro) {
+       this.idventa = idVenta;
        this.papeleria = papeleria;
        this.usuario= usuario;
-       this.fecharegistro = fecharegistro;
+       this.fecharegistro = fechaRegistro;
     }
 
     public ventas() {
@@ -66,6 +66,7 @@ public class ventas implements Serializable {
     public void setFecharegistro(String fecharegistro) {
         this.fecharegistro = fecharegistro;
     }
+
 }
 
    

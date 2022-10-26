@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded",() =>{
             .then(papeleria => papeleria.forEach(slapItOnTheDOM))
             //.then(console.log())
     function slapItOnTheDOM(papeleria){
-        //console.log("Inicia mostrando el listado de roles");
+        //console.log("Inicia mostrando el listado de papelerias");
         const papeleriaLi = document.createElement("li");
         papeleriaLi.dataset.idPapeleria = papeleria.idpapeleria;
         papeleriaLi.innerHTML = '<span>'+papeleria.nombrepapeleria + '-' + papeleria.celularpapeleria + '-' + papeleria.direccionpapeleria +'</span>';

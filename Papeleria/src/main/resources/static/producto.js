@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded",() =>{
     function slapItOnTheDOM(producto){
         //console.log("Inicia mostrando el listado de productos");
         const productoLi = document.createElement("li");
-        productoLi.dataset.idProducto = producto.idproducto;
+        productoLi.dataset.idproducto = producto.idproducto;
         productoLi.innerHTML = '<span>'+producto.descripcionproducto + '-' + producto.idcategoria + '-' + producto.idproveedor +'</span>';
         productos.appendChild(productoLi);
         //console.log("Identificador de producto", productoLi.dataset.id);

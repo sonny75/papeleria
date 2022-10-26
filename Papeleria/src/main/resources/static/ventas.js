@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const ventas = document.querySelector("#ventas");
+    const venta = document.querySelector("#ventas");
     const ventasForm = document.querySelector("#create-ventas");
     console.log("Lo que trae la variable:", ventasForm);
     //console.log("Lo que trae la variable:",ventas);
-   ventasForm.addEventListener('submit', createVentas);
+   ventasForm.addEventListener('submit', createventas);
     fetch("http://localhost:8080/ventas/list")
             .then(response => response.json())
             //.then(response=> console.log(response))
@@ -12,16 +12,17 @@ document.addEventListener("DOMContentLoaded", () => {
     function slapItOnTheDOM(ventas) {
         //console.log("Inicia mostrando el listado de roles");
         const ventasLi = document.createElement("li");
+        console.log (ventas); 
        ventasLi.dataset.idVentas = ventas.idventas;
-       ventasLi.innerHTML = '<span>' +ventas.idpapeleria 
-                + '-' + ventas.idusuario +'-'
+       ventasLi.innerHTML = '<span>' +ventas.papeleria.nombrepapeleria
+                + '-' + ventas.usuario.nombreuno +'-'
                 + ventas.fecharegistro
                 + '-' 
         '</span>';
-       ventas.appendChild(ventasLi);
+       venta.appendChild(ventasLi);
         //console.log("Identificador de Rol", rolLi.dataset.id); 
     }
-    function createVentas(event) {
+    function createventas(event) {
         console.log('Inicia creacion');
         event.preventDefault();
         let nuevoVentas = reunirFormData();
@@ -39,10 +40,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     function reunirFormData() {
         return{
-            idvetnas: event.target.idventas.value,
-            idpapeleria: event.target.idpapeleria.value,
-            idusuario: event.target.idusuario.value,
-            emailproveedor: event.target.emailproveedor.value,
+            idventa: event.target.idventa.value,
+              papeleria: {
+            idpapeleria: event.target.idpapeleria.value
+              },
+              usuario: {
+            idusuario: event.target.idusuario.value
+              } ,
+            
             fecharegistro: event.target.fecharegistro.value
            
         }
