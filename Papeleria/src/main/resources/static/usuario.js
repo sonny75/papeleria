@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const usuario = document.querySelector("#usuario");
+    const usuarios = document.querySelector("#usuarios");
     const usuarioForm = document.querySelector("#create-usuario");
     console.log("Lo que trae la variable:",usuarioForm);
      //console.log("Lo que trae la variable:",usuario);
@@ -20,9 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 + '-' + usuario.celular
                 + '-' + usuario.direcccion
                 + '-' + usuario.email
-                + '-' + usuario.rol;
+                + '-' + usuario.rol.id
         '</span>';
-        usuario.appendChild(usuarioLi);
+        usuarios.appendChild(usuarioLi);
         //console.log("Identificador de usuario", usuarioLi.dataset.id); 
     }
      function createUsuario(event) {
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
             celular: event.target.celular.value,
             direccion: event.target.direccion.value,
             email: event.target.email.value,
-            rol: event.target.rol.value
+            rol:{id: event.target.id.value}
         }
     }
 })

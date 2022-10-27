@@ -13,14 +13,14 @@ document.addEventListener("DOMContentLoaded",() =>{
         //console.log("Inicia mostrando el listado de inventarios");
         const inventarioLi = document.createElement("li");
         inventarioLi.dataset.idinventario = inventario.idinventario;
-        inventarioLi.innerHTML = '<span>'+inventario.idproducto
-                + '-' + inventario.idproveedor
+        inventarioLi.innerHTML = '<span>'+inventario.producto.idproducto
+                + '-' + inventario.provedor.idproveedor
                 + '-' + inventario.fecharegistro 
                 + '-' + inventario.cantidad
                 + '-' + inventario.valorunitario
-                + '-' + inventario.codigoventa;
+                + '-' + inventario.ventas.idventa;
                 '</span>';
-        inventario.appendChild(inventarioLi);
+        inventarios.appendChild(inventarioLi);
         //console.log("Identificador de inventario", inventarioLi.dataset.id);
     }
     function createInventario(event){
@@ -40,13 +40,15 @@ document.addEventListener("DOMContentLoaded",() =>{
     }
     function reunirFormData(){
         return {
-            idpinventario:event.target.idinventario.value,
-            idproducto:event.target.idproducto.value,
-            idproveedor:event.target.idproveedor.value,
+            idinventario:event.target.idinventario.value,
+            producto:{idproducto:event.target.idproducto.value},
+            provedor:{idproveedor:event.target.idproveedor.value},
             fecharegistro:event.target.fecharegistro.value,
             cantidad:event.target.cantidad.value,
             valorunitario:event.target.valorunitario.value,
-            codigoventa:event.target.codigoventa.value
+            ventas:{
+                idventa:event.target.codigoventa.value
+            }
         }
     }
 })

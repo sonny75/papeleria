@@ -13,7 +13,10 @@ document.addEventListener("DOMContentLoaded",() =>{
         //console.log("Inicia mostrando el listado de productos");
         const productoLi = document.createElement("li");
         productoLi.dataset.idproducto = producto.idproducto;
-        productoLi.innerHTML = '<span>'+producto.descripcionproducto + '-' + producto.idcategoria + '-' + producto.idproveedor +'</span>';
+        productoLi.innerHTML = '<span>'+producto.descripcionproducto
+                + '-' + producto.categoria.idCategoria 
+                + '-' + producto.provedor.idproveedor 
+                +'</span>';
         productos.appendChild(productoLi);
         //console.log("Identificador de producto", productoLi.dataset.id);
     }
@@ -36,8 +39,8 @@ document.addEventListener("DOMContentLoaded",() =>{
         return {
             idproducto:event.target.idproducto.value,
             descripcionproducto:event.target.descripcionproducto.value,
-            idcategoria:event.target.idcategoria.value,
-            idproveedor:event.target.idproveedor.value
+            categoria:{idCategoria:event.target.idcategoria.value},
+            provedor:{idproveedor:event.target.idproveedor.value}
         }
     }
 })

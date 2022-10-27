@@ -102,14 +102,18 @@ body{
     margin: 6em;
 }
 #footer{
-    height:84%;
+    height:80%;
     background-color: #213F3E;
     border-radius:1em;
     margin:0.5em;
 }
+#footer p{
+    
+    text-align:center;
+}
 #section{
-    height: 36%;
-    width: 58%;
+    height: 35%;
+    width: 54%;
     background-color:#213F3E;
     border-radius: 1em;
     float: left;
@@ -128,6 +132,8 @@ body{
 }
 #aside p{
     color:antiquewhite;
+    font-size:45px;
+    text-align:justify;
 }
 .articulo{
     height: 22%;

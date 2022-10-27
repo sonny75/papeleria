@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded",() =>{
     fetch("http://localhost:8080/papeleria/list")
             .then(response => response.json())
             //.then(response=> console.log(response))
-            .then(papeleria => papeleria.forEach(slapItOnTheDOM))
+            .then(papelerias => papelerias.forEach(slapItOnTheDOM))
             //.then(console.log())
     function slapItOnTheDOM(papeleria){
         //console.log("Inicia mostrando el listado de papelerias");
